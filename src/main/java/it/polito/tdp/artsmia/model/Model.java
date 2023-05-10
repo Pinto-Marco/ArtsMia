@@ -73,6 +73,7 @@ public class Model {
 	public Boolean isGraphCreated() {
 		if (this.graph.vertexSet().size()>0 )
 			return true;
+		
 		else 
 			return false;
 	}
@@ -88,6 +89,7 @@ public class Model {
 		loadNodes();
 		// Modo 1: esploro il grafo, e calcolo la size del set 
 		//dei vertici esplorati dall'iteratore (garanzia di aver esplorato tutti i nodi connessi)
+		
 		DepthFirstIterator<ArtObject, DefaultWeightedEdge> iterator = 
 				new DepthFirstIterator<>(this.graph, this.idMap.get(objID));
 		
@@ -99,6 +101,7 @@ public class Model {
 		
 		// Modo 2: uso la classe ConnectivityInspector che già implementa un metodo per 
 		// recuperare tutti i nodi connesso ad un nodo radice
+		
 		ConnectivityInspector<ArtObject, DefaultWeightedEdge> inspector = new ConnectivityInspector<>(this.graph);
 		Set<ArtObject> setConnesso = inspector.connectedSetOf(this.idMap.get(objID));
 		
